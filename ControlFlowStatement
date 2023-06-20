@@ -1,0 +1,53 @@
+
+nested if  :- if within if :
+
+
+-- write a pl/sql block to declare employee bonus based on following conditions
+
+     -> if employ type is 'permanent' and experience >=10 years then 50% bonus
+
+     -> if employe type is 'permanent' and experience <10 years then 30% bonus
+
+     -> if employee type is temporary then 20% bonus
+
+
+
+    declare
+    employ_type varchar2(10) :='&employ_type';
+    employ_exp  Number(10) := '&employ_exp';
+    begin
+    if employ_type ='P' then 
+    if employ_exp >=10 then
+    dbms_output.put_line('employ getting 50% bonus');
+    else
+    dbms_output.put_line('employ getting 30% bonus');
+    end if;
+    else
+    if employ_type ='T' then
+    dbms_output.put_line('Employ getting 20% bonus');
+    else
+    dbms_output.put_line('Invalid employee...');
+    end if;
+    end if;
+    end;
+    /
+
+  #elsif ladder
+
+
+ Find grade of student with respective percentage
+
+ declare 
+ v_avg Number(7,2):=&v_avg;
+ begin
+ if v_avg >=60 then
+ dbms_output.put_line('You are in First class');
+ elsif v_avg >=50 then
+ dbms_output.put_line('You are in second class');
+ elsif v_avg >=40 then
+ dbms_output.put_line('You are in Third class');
+ else
+ dbms_output.put_line('Passs....!');
+ end if;
+ end;
+ /
